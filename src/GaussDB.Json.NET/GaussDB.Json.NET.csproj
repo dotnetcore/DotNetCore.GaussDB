@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<Authors>NCC;Jeffcky</Authors>
+		<Description>Json.NET plugin for DotNetCore.GaussDB, allowing transparent serialization/deserialization of JSON objects directly to and from the database.</Description>
+		<PackageTags>GaussDB;postgresql;json;postgres;ado;ado.net;database;sql</PackageTags>
+		<TargetFrameworks>netstandard2.0;net6.0</TargetFrameworks>
+		<TargetFrameworks Condition="'$(DeveloperBuild)' == 'True'">net8.0</TargetFrameworks>
+		<Nullable>enable</Nullable>
+		<AssemblyName>DotNetCore.GaussDB.Json.NET</AssemblyName>
+		<RootNamespace>DotNetCore.GaussDB.Json.NET</RootNamespace>
+		<PackageId>DotNetCore.GaussDB.Json.NET</PackageId>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\GaussDB\GaussDB.csproj" />
+	</ItemGroup>
+</Project>
