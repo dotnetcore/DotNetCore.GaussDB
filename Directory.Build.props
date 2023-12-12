@@ -1,29 +1,34 @@
 ﻿<Project>
-  <PropertyGroup>
-    <VersionPrefix>8.0.1</VersionPrefix>
-    <LangVersion>latest</LangVersion>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <Nullable>enable</Nullable>
-    <AnalysisLevel>latest</AnalysisLevel>
-    <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
-    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)Npgsql.snk</AssemblyOriginatorKeyFile>
-    <SignAssembly>true</SignAssembly>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	<PropertyGroup>
+		<VersionPrefix>8.0.1</VersionPrefix>
+		<LangVersion>latest</LangVersion>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<Nullable>enable</Nullable>
+		<AnalysisLevel>latest</AnalysisLevel>
+		<SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
+		<AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)Npgsql.snk</AssemblyOriginatorKeyFile>
+		<SignAssembly>true</SignAssembly>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 
-    <PackageLicenseExpression>PostgreSQL</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/dotnetcore/DotNetCore.GaussDB</PackageProjectUrl>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <NoWarn>$(NoWarn);NETSDK1138</NoWarn> <!-- The target framework 'net5.0' is out of support  -->
-    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-  </PropertyGroup>
+		<PackageLicenseExpression>PostgreSQL</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/dotnetcore/DotNetCore.GaussDB</PackageProjectUrl>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<NoWarn>$(NoWarn);NETSDK1138</NoWarn>
+		<!-- The target framework 'net5.0' is out of support  -->
+		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+	</PropertyGroup>
 
-  <!-- In netstandard2.0, the BCL isn't annotated for nullability so we disable nullability there -->
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'netcoreapp3.1'">
-    <Nullable>disable</Nullable>
-    <NoWarn>$(NoWarn);CS8632;CS8600</NoWarn>
-  </PropertyGroup>
+	<!-- In netstandard2.0, the BCL isn't annotated for nullability so we disable nullability there -->
+	<PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'netcoreapp3.1'">
+		<Nullable>disable</Nullable>
+		<NoWarn>$(NoWarn);CS8632;CS8600</NoWarn>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="$(MSBuildThisFileDirectory)icon.png" Pack="true" PackagePath="" />
+	</ItemGroup>
 
 </Project>
