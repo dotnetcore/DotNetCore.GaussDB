@@ -5,7 +5,7 @@ GaussDB is the open source .NET data provider for PostgreSQL. It allows you to c
 Here's a basic code snippet to get you started:
 
 ```csharp
-var connString = "Host=myserver;Username=mylogin;Password=mypass;Database=mydatabase";
+var connString = "host={host};port={port};username={username};Password={password};database={database}";
 
 await using var conn = new GaussDBConnection(connString);
 await conn.OpenAsync();
@@ -25,20 +25,3 @@ while (await reader.ReadAsync())
     Console.WriteLine(reader.GetString(0));
 }
 ```
-
-## Key features
-
-* High-performance PostgreSQL driver. Regularly figures in the top contenders on the [TechEmpower Web Framework Benchmarks](https://www.techempower.com/benchmarks/).
-* Full support of most PostgreSQL types, including advanced ones such as arrays, enums, ranges, multiranges, composites, JSON, PostGIS and others.
-* Highly-efficient bulk import/export API.
-* Failover, load balancing and general multi-host support.
-* Great integration with Entity Framework Core via [GaussDB.EntityFrameworkCore.PostgreSQL](https://www.nuget.org/packages/GaussDB.EntityFrameworkCore.PostgreSQL). 
-
-For the full documentation, please visit [the GaussDB website](https://www.GaussDB.org).
-
-## Related packages
-
-* The Entity Framework Core provider that works with this provider is [GaussDB.EntityFrameworkCore.PostgreSQL](https://www.nuget.org/packages/GaussDB.EntityFrameworkCore.PostgreSQL).
-* Spatial plugin to work with PostgreSQL PostGIS: [GaussDB.NetTopologySuite](https://www.nuget.org/packages/GaussDB.NetTopologySuite)
-* NodaTime plugin to use better date/time types with PostgreSQL: [GaussDB.NodaTime](https://www.nuget.org/packages/GaussDB.NodaTime)
-* OpenTelemetry support can be set up with [GaussDB.OpenTelemetry](https://www.nuget.org/packages/GaussDB.OpenTelemetry)
