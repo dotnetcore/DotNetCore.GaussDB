@@ -798,7 +798,7 @@ public sealed partial class GaussDBConnectionStringBuilder : DbConnectionStringB
 
     /// <summary>
     /// The time to wait (in seconds) while trying to establish a connection before terminating the attempt and generating an error.
-    /// Defaults to 15 seconds.
+    /// Defaults to 30 seconds.
     /// </summary>
     [Category("Timeouts")]
     [Description("The time to wait (in seconds) while trying to establish a connection before terminating the attempt and generating an error.")]
@@ -819,7 +819,7 @@ public sealed partial class GaussDBConnectionStringBuilder : DbConnectionStringB
     }
     int _timeout;
 
-    internal const int DefaultTimeout = 15;
+    internal const int DefaultTimeout = 30;
 
     /// <summary>
     /// The time to wait (in seconds) while trying to execute a command before terminating the attempt and generating an error.
@@ -883,13 +883,13 @@ public sealed partial class GaussDBConnectionStringBuilder : DbConnectionStringB
     {
         get => TargetSessionAttributesParsed switch
         {
-            GaussDB.TargetSessionAttributes.Any           => "any",
-            GaussDB.TargetSessionAttributes.Primary       => "primary",
-            GaussDB.TargetSessionAttributes.Standby       => "standby",
+            GaussDB.TargetSessionAttributes.Any => "any",
+            GaussDB.TargetSessionAttributes.Primary => "primary",
+            GaussDB.TargetSessionAttributes.Standby => "standby",
             GaussDB.TargetSessionAttributes.PreferPrimary => "prefer-primary",
             GaussDB.TargetSessionAttributes.PreferStandby => "prefer-standby",
-            GaussDB.TargetSessionAttributes.ReadWrite     => "read-write",
-            GaussDB.TargetSessionAttributes.ReadOnly      => "read-only",
+            GaussDB.TargetSessionAttributes.ReadWrite => "read-write",
+            GaussDB.TargetSessionAttributes.ReadOnly => "read-only",
             null => null,
 
             _ => throw new ArgumentException($"Unhandled enum value '{TargetSessionAttributesParsed}'")
@@ -907,13 +907,13 @@ public sealed partial class GaussDBConnectionStringBuilder : DbConnectionStringB
     internal static TargetSessionAttributes ParseTargetSessionAttributes(string s)
         => s switch
         {
-            "any"            => GaussDB.TargetSessionAttributes.Any,
-            "primary"        => GaussDB.TargetSessionAttributes.Primary,
-            "standby"        => GaussDB.TargetSessionAttributes.Standby,
+            "any" => GaussDB.TargetSessionAttributes.Any,
+            "primary" => GaussDB.TargetSessionAttributes.Primary,
+            "standby" => GaussDB.TargetSessionAttributes.Standby,
             "prefer-primary" => GaussDB.TargetSessionAttributes.PreferPrimary,
             "prefer-standby" => GaussDB.TargetSessionAttributes.PreferStandby,
-            "read-write"     => GaussDB.TargetSessionAttributes.ReadWrite,
-            "read-only"      => GaussDB.TargetSessionAttributes.ReadOnly,
+            "read-write" => GaussDB.TargetSessionAttributes.ReadWrite,
+            "read-only" => GaussDB.TargetSessionAttributes.ReadOnly,
 
             _ => throw new ArgumentException($"TargetSessionAttributes contains an invalid value '{s}'")
         };

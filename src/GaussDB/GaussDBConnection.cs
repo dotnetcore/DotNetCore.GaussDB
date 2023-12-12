@@ -93,7 +93,7 @@ public sealed class GaussDBConnection : DbConnection, ICloneable, IComponent
     static Func<string, GaussDBConnection>? _cloningInstantiator;
 
     /// <summary>
-    /// The default TCP/IP port for PostgreSQL.
+    /// The default TCP/IP port for GaussDB.
     /// </summary>
     public const int DefaultPort = 5432;
 

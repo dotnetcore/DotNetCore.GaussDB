@@ -436,6 +436,9 @@ ORDER BY oid{(withEnumSortOrder ? ", enumsortorder" : "")};";
             }
             Expect<CommandCompleteMessage>(msg, conn);
         }
+
+        Expect<ReadyForQueryMessage>(await conn.ReadMessage(async).ConfigureAwait(false), conn);
+
         return new(byOID.Values);
 
         static string ReadNonNullableString(GaussDBReadBuffer buffer)
