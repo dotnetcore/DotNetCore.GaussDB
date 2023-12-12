@@ -7,7 +7,7 @@ For example, if using the ASP.NET minimal web API, simply use the following to r
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddGaussDBDataSource("Host={host};Username={username};Password={password};Database={database}");
+builder.Services.AddGaussDBDataSource("host={host};port={port};username={username};password={password};database={database}");
 ```
 
 ```csharp
