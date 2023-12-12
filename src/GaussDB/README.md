@@ -5,7 +5,7 @@ GaussDB is the open source .NET data provider for PostgreSQL. It allows you to c
 Here's a basic code snippet to get you started:
 
 ```csharp
-var connString = "host={host};port={port};username={username};Password={password};database={database}";
+var connString = "host={host};port={port};username={username};password={password};database={database}";
 
 await using var conn = new GaussDBConnection(connString);
 await conn.OpenAsync();
