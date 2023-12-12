@@ -12,6 +12,7 @@
 
 		<PackageLicenseExpression>PostgreSQL</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/dotnetcore/DotNetCore.GaussDB</PackageProjectUrl>
+		<PackageIcon>icon.png</PackageIcon>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
