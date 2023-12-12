@@ -7,7 +7,7 @@ Here's a basic code snippet to get you started:
 ```csharp
 using GaussDB;
 
-var connString = "Host=myserver;Username=mylogin;Password=mypass;Database=mydatabase";
+var connString = "host={host};port={port};username={username};Password={password};database={database}";
 
 var dataSourceBuilder = new GaussDBDataSourceBuilder(connString);
 var dataSource = dataSourceBuilder.Build();
