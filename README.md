@@ -1,8 +1,7 @@
+# DotNetCore.GaussDB - the .NET data provider for PostgreSQL
 [![Member project of .NET Core Community](https://img.shields.io/badge/member%20project%20of-NCC-9e20c9.svg)](https://github.com/dotnetcore) 
 [![nuget](https://img.shields.io/nuget/v/DotNetCore.GaussDB.svg?style=flat-square)](https://www.nuget.org/packages/DotNetCore.GaussDB) 
 [![stats](https://img.shields.io/nuget/dt/DotNetCore.GaussDB.svg?style=flat-square)](https://www.nuget.org/stats/packages/DotNetCore.GaussDB?groupby=Version) 
-
-# DotNetCore.GaussDB - the .NET data provider for PostgreSQL
 
 ## Quickstart
 
