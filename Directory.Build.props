@@ -1,0 +1,19 @@
+﻿<Project>
+	<PropertyGroup>
+		<VersionPrefix>9.0.0</VersionPrefix>
+		<LangVersion>latest</LangVersion>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<Nullable>enable</Nullable>
+		<AnalysisLevel>latest</AnalysisLevel>
+		<SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+		<PackageLicenseExpression>PostgreSQL</PackageLicenseExpression>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<NoWarn>$(NoWarn);NETSDK1138</NoWarn>
+	</PropertyGroup>
+
+</Project>
