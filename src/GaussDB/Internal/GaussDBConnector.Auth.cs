@@ -104,12 +104,7 @@ partial class GaussDBConnector
 
         Expect<AuthenticationRequestMessage>(await ReadMessage(async).ConfigureAwait(false), this);
 
-        static byte[] Hi(string password, byte[] salt, int iteration)
-        {
-            using var di = new Rfc2898DeriveBytes(password, salt, iteration);
-
-            return di.GetBytes(32);
-        }
+        static byte[] Hi(string password, byte[] salt, int iteration) => Rfc2898DeriveBytes.Pbkdf2(password, salt, iteration, HashAlgorithmName.SHA256, 256 / 8);
 
         static byte[] XOR_Between_Password(byte[] password1, byte[] password2, int length)
         {
@@ -354,7 +349,7 @@ partial class GaussDBConnector
     {
         var targetName = $"{KerberosServiceName}/{Host}";
 
-        using var authContext = new NegotiateAuthentication(new NegotiateAuthenticationClientOptions{ TargetName = targetName});
+        using var authContext = new NegotiateAuthentication(new NegotiateAuthenticationClientOptions { TargetName = targetName });
         var data = authContext.GetOutgoingBlob(ReadOnlySpan<byte>.Empty, out var statusCode)!;
         Debug.Assert(statusCode == NegotiateAuthenticationStatusCode.ContinueNeeded);
         await WritePassword(data, 0, data.Length, async, UserCancellationToken).ConfigureAwait(false);
