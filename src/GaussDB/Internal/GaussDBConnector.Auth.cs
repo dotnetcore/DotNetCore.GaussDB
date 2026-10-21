@@ -76,7 +76,7 @@ partial class GaussDBConnector
 
         var tokenbytes = HexStringToBytes(token);
 
-        var passwordK = Hi(passwd.Normalize(NormalizationForm.FormKC), saltbytes, iteration);
+        var passwordK = Hi(passwd, saltbytes, iteration);
 
         var clientKey = HMAC(passwordK, Encoding.ASCII.GetBytes("Client Key"));
 
@@ -102,9 +102,12 @@ partial class GaussDBConnector
 
         await Flush(async, cancellationToken).ConfigureAwait(false);
 
-        Expect<AuthenticationRequestMessage>(await ReadMessage(async).ConfigureAwait(false), this);
+        // The server now replies with AuthenticationOk; it is read by the loop in
+        // Authenticate(), which is what terminates the authentication cycle.
+        // Reading it here consumed it twice and used Expect<T> with an abstract type,
+        // which can never match (Statics.Expect compares GetType() to typeof(T)).
 
-        static byte[] Hi(string password, byte[] salt, int iteration) => Rfc2898DeriveBytes.Pbkdf2(password, salt, iteration, HashAlgorithmName.SHA256, 256 / 8);
+        static byte[] Hi(string password, byte[] salt, int iteration) => Rfc2898DeriveBytes.Pbkdf2(password, salt, iteration, HashAlgorithmName.SHA1, 256 / 8);
 
         static byte[] XOR_Between_Password(byte[] password1, byte[] password2, int length)
         {

@@ -11,7 +11,7 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.9.2" />
 		<PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.11.0" />
-		<PackageReference Include="Scriban.Signed" Version="5.9.0"  GeneratePathProperty="true" PrivateAssets="all"/>
+		<PackageReference Include="Scriban.Signed" Version="7.5.1"  GeneratePathProperty="true" PrivateAssets="all"/>
 	</ItemGroup>
 
 	<PropertyGroup>
