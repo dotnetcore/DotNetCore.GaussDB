@@ -7,7 +7,7 @@
 		<TargetFrameworks>net10.0</TargetFrameworks>
 		<TargetFrameworks Condition="'$(DeveloperBuild)' == 'True'">net10.0</TargetFrameworks>
 		<NoWarn>$(NoWarn);CA2017;SYSLIB0041;SYSLIB0057;IL2060;</NoWarn>
-		<Version>10.0.0</Version>
+		<Version>10.0.1</Version>
 		<AssemblyName>DotNetCore.GaussDB</AssemblyName>
 		<RootNamespace>DotNetCore.GaussDB</RootNamespace>
 		<PackageId>DotNetCore.GaussDB</PackageId>
